@@ -1,0 +1,18 @@
+= Pagination
+
+== Types of Pagination
+[disc]
+* Offset-based Pagination
+* Token-based Pagination
+
+== Offset Based Pagination
+
+=== Traverse Forward
+
+=== Traverse backward
+
+== Token Based Pagination
+
+=== Traverse Forward
+
+=== Traverse backward
