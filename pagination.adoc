@@ -1,5 +1,15 @@
 = Pagination
 
+.Keywords
+[disc]
+* LIMIT,
+** `"LIMIT"` as it’s name suggests, limits the number of rows returned in a SELECT query
+* OFFSET, 
+* ORDER BY
+* Pagination
+
+image::./img/limit_offset.png[Limit offset example, 100, 100]
+
 == Types of Pagination
 [disc]
 * Offset-based Pagination
@@ -14,5 +24,11 @@
 == Token Based Pagination
 
 === Traverse Forward
+
+`nextToken` is used to specify the record after which additional items should be fetched, along with the page size. 
+
+The implementation of the token is system-specific.
+
+`DynamoDB` is an example of at system that uses `token-pagination`
 
 === Traverse backward
