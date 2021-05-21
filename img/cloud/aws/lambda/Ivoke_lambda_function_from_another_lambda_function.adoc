@@ -1,0 +1,45 @@
+# Invoke AWS Lambda function from another lambda function
+
+## Prerequisite
+
+* `IAM role` role to attach below policy to the `invoking` lambda function
+** `lambda:InvokeFunction`,
+** `lambda:InvokeAsync`
+
+## Steps
+
+* Create invoker lambda function
+** Attach `IAM` policy
+* Create lambda function for invoking
+* Test it 
+
+## Sample code with AWS Chalice fraework
+
+.Saple code to invoke another lambda function
+[source, python]
+----
+from chalice import Chalice
+
+import logging
+import boto3
+
+app = Chalice(app_name='lambda-invoker')
+
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+
+# Define the client to interact with AWS Lambda
+client = boto3.client('lambda')
+
+@app.on_kinesis_record(stream=os.environ.get('kinesisStreamName'))
+def handler(event):
+    logger.debug("Received event {}".format(event))
+     #Invoke Lambda
+    client.invoke(
+        FunctionName = "arn:aws:lambda:ca-central-1:047076321700:function:eballot-pollBetaStack-Handler-N3Z7PX8BK9PE",
+        InvocationType = "Event",
+        Payload = event
+        )
+    return
+
+----
