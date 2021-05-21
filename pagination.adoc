@@ -1,5 +1,7 @@
 = Pagination
 
+Pagination is a sequence of pages which are connected and have similar content
+
 .Keywords
 [disc]
 * LIMIT,
