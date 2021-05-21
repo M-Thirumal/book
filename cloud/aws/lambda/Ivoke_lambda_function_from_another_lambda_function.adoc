@@ -1,5 +1,7 @@
 # Invoke AWS Lambda function from another lambda function
 
+image::./img/lambda-Invoke.svg[]
+
 ## Prerequisite
 
 * `IAM role` role to attach below policy to the `invoking` lambda function
