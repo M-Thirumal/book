@@ -2,6 +2,10 @@
 
 Pagination is a sequence of pages which are connected and have similar content
 
+_Page_ is a fixed count of results or fixed size of results
+
+Client application may request to skip multiple page and fetch the following page
+
 .Keywords
 [disc]
 * LIMIT,
@@ -34,3 +38,10 @@ The implementation of the token is system-specific.
 `DynamoDB` is an example of at system that uses `token-pagination`
 
 === Traverse backward
+
+
+== Pagination in Graph
+
+Vertices can be refered directly but when we execute a graph traversal we are effectively conducting a complex join among the vertices that take part in the traversal.
+
+ In the general case, to support pagination, we need to store some state for each of the participating node and edge, as each of them may contribute to the final output during the computation of the next page.
