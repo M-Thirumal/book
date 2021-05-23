@@ -4,4 +4,4 @@ When branches or roots of different trees are in prolonged intimate contact, the
 
 It's not so much one tree feeding another as the formation of a new hybrid organism.
 
-image::inosculation.png[Inosculation.png. align="center"]
+image::inosculation.png[Inosculation.png, align="center"]
