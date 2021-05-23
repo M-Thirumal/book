@@ -8,7 +8,14 @@
 :doctype: book
 :reproducible:
 :source-highlighter: rouge
-:hide-uri-scheme: 
+:hide-uri-scheme:
+:toc: left
+:toclevels: 2
+:sectanchors:
+:sectlinks:
+:sectnums:
+
+toc::[] 
 
 == Biology
 
