@@ -4,3 +4,6 @@
 :title: Thirual Book
 
 == Biology
+
+* include::./Biology/Botany/Botany.adoc[]
+
