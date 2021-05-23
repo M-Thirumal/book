@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Thirumal book generator
+name: Build Thirumal book
 
 # Controls when the action will run. 
 on:
