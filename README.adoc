@@ -1,5 +1,6 @@
 = Book
-
-Thirumal book
+:docinfo: shared
+:doctype: book
+:title: Thirual Book
 
 == Biology
