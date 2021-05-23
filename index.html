@@ -119,16 +119,227 @@ th {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_biology"><a class="anchor" href="#_biology"></a><a class="link" href="#_biology">1. Biology</a></h2>
+<h2 id="_computer_science"><a class="anchor" href="#_computer_science"></a><a class="link" href="#_computer_science">1. Computer Science</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_aws"><a class="anchor" href="#_aws"></a><a class="link" href="#_aws">1.1. AWS</a></h3>
+<div class="sect3">
+<h4 id="_lambda_functions"><a class="anchor" href="#_lambda_functions"></a><a class="link" href="#_lambda_functions">1.1.1. Lambda Functions</a></h4>
+
+</div>
+</div>
+</div>
+</div>
+<h1 id="_invoke_aws_lambda_function_from_another_lambda_function" class="sect0"><a class="anchor" href="#_invoke_aws_lambda_function_from_another_lambda_function"></a><a class="link" href="#_invoke_aws_lambda_function_from_another_lambda_function">Invoke AWS Lambda function from another lambda function</a></h1>
+<div class="imageblock">
+<div class="content">
+<img src="img/lambda-Invoke.svg" alt="lambda Invoke">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisite"><a class="anchor" href="#_prerequisite"></a><a class="link" href="#_prerequisite">1. Prerequisite</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>IAM role</code> role to attach below policy to the <code>invoking</code> lambda function</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>lambda:InvokeFunction</code>,</p>
+</li>
+<li>
+<p><code>lambda:InvokeAsync</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_steps"><a class="anchor" href="#_steps"></a><a class="link" href="#_steps">2. Steps</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Create invoker lambda function</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Attach <code>IAM</code> policy</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Create lambda function for invoking</p>
+</li>
+<li>
+<p>Test it</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sample_code_with_aws_chalice_fraework"><a class="anchor" href="#_sample_code_with_aws_chalice_fraework"></a><a class="link" href="#_sample_code_with_aws_chalice_fraework">3. Sample code with AWS Chalice fraework</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">Saple code to invoke another lambda function</div>
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">from chalice import Chalice
+
+import logging
+import boto3
+
+app = Chalice(app_name='lambda-invoker')
+
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+
+# Define the client to interact with AWS Lambda
+client = boto3.client('lambda')
+
+@app.on_kinesis_record(stream=os.environ.get('kinesisStreamName'))
+def handler(event):
+    logger.debug("Received event {}".format(event))
+     #Invoke Lambda
+    client.invoke(
+        FunctionName = "arn:aws:lambda:ca-central-1:047076321700:function:eballot-pollBetaStack-Handler-N3Z7PX8BK9PE",
+        InvocationType = "Event",
+        Payload = event
+        )
+    return</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pagination"><a class="anchor" href="#_pagination"></a><a class="link" href="#_pagination">3.1. Pagination</a></h3>
+
+</div>
+</div>
+</div>
+<h1 id="_pagination_2" class="sect0"><a class="anchor" href="#_pagination_2"></a><a class="link" href="#_pagination_2">Pagination</a></h1>
+<div class="paragraph">
+<p>Pagination is a sequence of pages which are connected and have similar content</p>
+</div>
+<div class="paragraph">
+<p><em>Page</em> is a fixed count of results or fixed size of results</p>
+</div>
+<div class="paragraph">
+<p>Client application may request to skip multiple page and fetch the following page</p>
+</div>
+<div class="ulist disc">
+<div class="title">Keywords</div>
+<ul class="disc">
+<li>
+<p>LIMIT,</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"LIMIT"</code> as it’s name suggests, limits the number of rows returned in a SELECT query</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>OFFSET,</p>
+</li>
+<li>
+<p>ORDER BY</p>
+</li>
+<li>
+<p>Pagination</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/limit_offset.png" alt="Limit offset example" width="100" height="100">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_types_of_pagination"><a class="anchor" href="#_types_of_pagination"></a><a class="link" href="#_types_of_pagination">1. Types of Pagination</a></h2>
+<div class="sectionbody">
+<div class="ulist disc">
+<ul class="disc">
+<li>
+<p>Offset-based Pagination</p>
+</li>
+<li>
+<p>Token-based Pagination</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_offset_based_pagination"><a class="anchor" href="#_offset_based_pagination"></a><a class="link" href="#_offset_based_pagination">2. Offset Based Pagination</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_traverse_forward"><a class="anchor" href="#_traverse_forward"></a><a class="link" href="#_traverse_forward">2.1. Traverse Forward</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_traverse_backward"><a class="anchor" href="#_traverse_backward"></a><a class="link" href="#_traverse_backward">2.2. Traverse backward</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_token_based_pagination"><a class="anchor" href="#_token_based_pagination"></a><a class="link" href="#_token_based_pagination">3. Token Based Pagination</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_traverse_forward_2"><a class="anchor" href="#_traverse_forward_2"></a><a class="link" href="#_traverse_forward_2">3.1. Traverse Forward</a></h3>
+<div class="paragraph">
+<p><code>nextToken</code> is used to specify the record after which additional items should be fetched, along with the page size.</p>
+</div>
+<div class="paragraph">
+<p>The implementation of the token is system-specific.</p>
+</div>
+<div class="paragraph">
+<p><code>DynamoDB</code> is an example of at system that uses <code>token-pagination</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_traverse_backward_2"><a class="anchor" href="#_traverse_backward_2"></a><a class="link" href="#_traverse_backward_2">3.2. Traverse backward</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pagination_in_graph"><a class="anchor" href="#_pagination_in_graph"></a><a class="link" href="#_pagination_in_graph">4. Pagination in Graph</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vertices can be refered directly but when we execute a graph traversal we are effectively conducting a complex join among the vertices that take part in the traversal.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>In the general case, to support pagination, we need to store some state for each of the participating node and edge, as each of them may contribute to the final output during the computation of the next page.</pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_asciidoc"><a class="anchor" href="#_asciidoc"></a><a class="link" href="#_asciidoc">4.1. AsciiDoc</a></h3>
+<div class="literalblock">
+<div class="content">
+<pre>include::asciidoc.adoc[]</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_biology"><a class="anchor" href="#_biology"></a><a class="link" href="#_biology">5. Biology</a></h2>
 <div class="sectionbody">
 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_botonay"><a class="anchor" href="#_botonay"></a><a class="link" href="#_botonay">2. Botonay</a></h2>
+<h2 id="_botonay"><a class="anchor" href="#_botonay"></a><a class="link" href="#_botonay">6. Botonay</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_inosculation"><a class="anchor" href="#_inosculation"></a><a class="link" href="#_inosculation">2.1. Inosculation</a></h3>
+<h3 id="_inosculation"><a class="anchor" href="#_inosculation"></a><a class="link" href="#_inosculation">6.1. Inosculation</a></h3>
 <div class="paragraph">
 <p>When branches or roots of different trees are in prolonged intimate contact, they often abrade each other, exposing their inner tissues, which may eventually fuse.</p>
 </div>
@@ -140,33 +351,6 @@ th {
 <img src="img/inosculation.png" alt="inosculation">
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_asciidoc"><a class="anchor" href="#_asciidoc"></a><a class="link" href="#_asciidoc">3. AsciiDoc</a></h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="_dependencies"><a class="anchor" href="#_dependencies"></a><a class="link" href="#_dependencies">4. Dependencies</a></h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="content">
-<pre>sudo apt-get install -y asciidoctor
-sudo apt-get -y install calibre
-sudo gem install asciidoctor-pdf --pre
-sudo gem install rouge
-sudo dpkg -i pandoc-xx.xx.xx-amd64.deb</pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Install <strong>pandoc</strong> <a href="https://github.com/jgm/pandoc/releases" class="bare">github.com/jgm/pandoc/releases</a></p>
-</li>
-</ul>
 </div>
 </div>
 </div>
