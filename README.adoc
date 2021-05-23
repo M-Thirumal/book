@@ -1,9 +1,8 @@
 = Book
 :docinfo: shared
 :doctype: book
-:title: Thirual Book
+:title: Thirumal Book
 
 == Biology
 
-* include::./Biology/Botany/Botany.adoc[]
-
+include::./Biology/Botany/Botany.adoc[]
