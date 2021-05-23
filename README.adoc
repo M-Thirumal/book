@@ -1,9 +1,18 @@
 = Book
+
+ Doc Writer m.thirumal@hotmail.com
+
+:title: Thirumal Book
 :imagesdir: img
 :docinfo: shared
 :doctype: book
-:title: Thirumal Book
+:reproducible:
+:source-highlighter: rouge
+:hide-uri-scheme: 
 
 == Biology
 
 include::./Biology/Botany/Botany.adoc[]
+
+== AsciiDoc
+include::asciidoc.adoc[]

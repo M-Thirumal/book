@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<info>
+<title>Book</title>
+<date>2021-05-23</date>
+</info>
+<preface>
+<title></title>
+<literallayout class="monospaced">Doc Writer m.thirumal@hotmail.com</literallayout>
+</preface>
+<chapter xml:id="_biology">
+<title>Biology</title>
+
+</chapter>
+<chapter xml:id="_botonay">
+<title>Botonay</title>
+<section xml:id="_inosculation">
+<title>Inosculation</title>
+<simpara>When branches or roots of different trees are in prolonged intimate contact, they often abrade each other, exposing their inner tissues, which may eventually fuse.</simpara>
+<simpara>It&#8217;s not so much one tree feeding another as the formation of a new hybrid organism.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="img/inosculation.png" align="center"/>
+</imageobject>
+<textobject><phrase>inosculation</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</section>
+</chapter>
+<chapter xml:id="_asciidoc">
+<title>AsciiDoc</title>
+
+</chapter>
+<chapter xml:id="_dependencies">
+<title>Dependencies</title>
+<screen>sudo apt-get install -y asciidoctor
+sudo apt-get -y install calibre
+sudo gem install asciidoctor-pdf --pre
+sudo gem install rouge
+sudo dpkg -i pandoc-xx.xx.xx-amd64.deb</screen>
+<itemizedlist>
+<listitem>
+<simpara>Install <emphasis role="strong">pandoc</emphasis> <link xl:href="https://github.com/jgm/pandoc/releases">github.com/jgm/pandoc/releases</link></simpara>
+</listitem>
+</itemizedlist>
+</chapter>
+</book>

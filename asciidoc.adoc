@@ -1,0 +1,12 @@
+== Dependencies
+
+[source bash]
+----
+sudo apt-get install -y asciidoctor
+sudo apt-get -y install calibre
+sudo gem install asciidoctor-pdf --pre
+sudo gem install rouge
+sudo dpkg -i pandoc-xx.xx.xx-amd64.deb
+----
+
+* Install *pandoc* https://github.com/jgm/pandoc/releases
