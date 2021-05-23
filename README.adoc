@@ -1,8 +1,9 @@
 = Book
+:imagesdir: img
 :docinfo: shared
 :doctype: book
 :title: Thirumal Book
 
 == Biology
 
-include::./Biology/Botany/Botany.adoc['Biology']
+include::./Biology/Botany/Botany.adoc[Botany]
