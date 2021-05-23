@@ -6,4 +6,4 @@
 
 == Biology
 
-include::./Biology/Botany/Botany.adoc[Botany]
+include::./Biology/Botany/Botany.adoc[]
