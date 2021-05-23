@@ -1,6 +1,6 @@
 # Invoke AWS Lambda function from another lambda function
 
-image::../../../img/lambda-Invoke.svg[]
+image::lambda-Invoke.svg[]
 
 ## Prerequisite
 

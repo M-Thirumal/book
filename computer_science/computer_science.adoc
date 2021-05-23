@@ -1,0 +1,12 @@
+=== AWS
+
+include::./cloud/aws/aws.adoc[]
+
+
+=== Pagination
+
+include::pagination.adoc[]
+
+=== AsciiDoc
+ 
+ include::asciidoc.adoc[]

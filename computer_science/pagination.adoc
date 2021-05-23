@@ -14,7 +14,7 @@ Client application may request to skip multiple page and fetch the following pag
 * ORDER BY
 * Pagination
 
-image::./img/limit_offset.png[Limit offset example, 100, 100]
+image::limit_offset.png[Limit offset example, 100, 100]
 
 == Types of Pagination
 [disc]

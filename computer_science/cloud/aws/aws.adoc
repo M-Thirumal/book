@@ -1,0 +1,3 @@
+==== Lambda Functions
+
+include::./lambda/Invoke_lambda_function_from_another_lambda_function.adoc[]
