@@ -1,0 +1,4 @@
+==== DynamoDb to Kinesis Stream 
+
+* Create kinesis stream
+* select the kinesis stream in Dynamodb table overview

@@ -14,6 +14,12 @@ Client application may request to skip multiple page and fetch the following pag
 * ORDER BY
 * Pagination
 
+===== Thinks that are need to be handled
+
+* Skiping page
+* Fetch based on the page & limit
+
+
 image::limit_offset.png[Limit offset example, 100, 100]
 
 == Types of Pagination

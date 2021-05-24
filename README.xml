@@ -9,7 +9,180 @@
 <preface>
 <title></title>
 <literallayout class="monospaced">Doc Writer m.thirumal@hotmail.com</literallayout>
+
 </preface>
+<chapter xml:id="_computer_science">
+<title>Computer Science</title>
+<section xml:id="_aws">
+<title>AWS</title>
+<section xml:id="_lambda_functions">
+<title>Lambda Functions</title>
+
+</section>
+</section>
+</chapter>
+<part xml:id="_invoke_aws_lambda_function_from_another_lambda_function">
+<title>Invoke AWS Lambda function from another lambda function</title>
+<partintro>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="img/lambda-Invoke.svg"/>
+</imageobject>
+<textobject><phrase>lambda Invoke</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</partintro>
+<chapter xml:id="_prerequisite">
+<title>Prerequisite</title>
+<itemizedlist>
+<listitem>
+<simpara><literal>IAM role</literal> role to attach below policy to the <literal>invoking</literal> lambda function</simpara>
+<itemizedlist>
+<listitem>
+<simpara><literal>lambda:InvokeFunction</literal>,</simpara>
+</listitem>
+<listitem>
+<simpara><literal>lambda:InvokeAsync</literal></simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</chapter>
+<chapter xml:id="_steps">
+<title>Steps</title>
+<itemizedlist>
+<listitem>
+<simpara>Create invoker lambda function</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Attach <literal>IAM</literal> policy</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>Create lambda function for invoking</simpara>
+</listitem>
+<listitem>
+<simpara>Test it</simpara>
+</listitem>
+</itemizedlist>
+</chapter>
+<chapter xml:id="_sample_code_with_aws_chalice_fraework">
+<title>Sample code with AWS Chalice fraework</title>
+<formalpara>
+<title>Saple code to invoke another lambda function</title>
+<para>
+<programlisting language="python" linenumbering="unnumbered">from chalice import Chalice
+
+import logging
+import boto3
+
+app = Chalice(app_name='lambda-invoker')
+
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+
+# Define the client to interact with AWS Lambda
+client = boto3.client('lambda')
+
+@app.on_kinesis_record(stream=os.environ.get('kinesisStreamName'))
+def handler(event):
+    logger.debug("Received event {}".format(event))
+     #Invoke Lambda
+    client.invoke(
+        FunctionName = "arn:aws:lambda:ca-central-1:047076321700:function:eballot-pollBetaStack-Handler-N3Z7PX8BK9PE",
+        InvocationType = "Event",
+        Payload = event
+        )
+    return</programlisting>
+</para>
+</formalpara>
+<section xml:id="_pagination">
+<title>Pagination</title>
+
+</section>
+</chapter>
+</part>
+<part xml:id="_pagination_2">
+<title>Pagination</title>
+<partintro>
+<simpara>Pagination is a sequence of pages which are connected and have similar content</simpara>
+<simpara><emphasis>Page</emphasis> is a fixed count of results or fixed size of results</simpara>
+<simpara>Client application may request to skip multiple page and fetch the following page</simpara>
+<itemizedlist mark="disc">
+<title>Keywords</title>
+<listitem>
+<simpara>LIMIT,</simpara>
+<itemizedlist>
+<listitem>
+<simpara><literal>"LIMIT"</literal> as it’s name suggests, limits the number of rows returned in a SELECT query</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>OFFSET,</simpara>
+</listitem>
+<listitem>
+<simpara>ORDER BY</simpara>
+</listitem>
+<listitem>
+<simpara>Pagination</simpara>
+</listitem>
+</itemizedlist>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="img/limit_offset.png" contentwidth="100" contentdepth="100"/>
+</imageobject>
+<textobject><phrase>Limit offset example</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</partintro>
+<chapter xml:id="_types_of_pagination">
+<title>Types of Pagination</title>
+<itemizedlist mark="disc">
+<listitem>
+<simpara>Offset-based Pagination</simpara>
+</listitem>
+<listitem>
+<simpara>Token-based Pagination</simpara>
+</listitem>
+</itemizedlist>
+</chapter>
+<chapter xml:id="_offset_based_pagination">
+<title>Offset Based Pagination</title>
+<section xml:id="_traverse_forward">
+<title>Traverse Forward</title>
+
+</section>
+<section xml:id="_traverse_backward">
+<title>Traverse backward</title>
+
+</section>
+</chapter>
+<chapter xml:id="_token_based_pagination">
+<title>Token Based Pagination</title>
+<section xml:id="_traverse_forward_2">
+<title>Traverse Forward</title>
+<simpara><literal>nextToken</literal> is used to specify the record after which additional items should be fetched, along with the page size.</simpara>
+<simpara>The implementation of the token is system-specific.</simpara>
+<simpara><literal>DynamoDB</literal> is an example of at system that uses <literal>token-pagination</literal></simpara>
+</section>
+<section xml:id="_traverse_backward_2">
+<title>Traverse backward</title>
+
+</section>
+</chapter>
+<chapter xml:id="_pagination_in_graph">
+<title>Pagination in Graph</title>
+<simpara>Vertices can be refered directly but when we execute a graph traversal we are effectively conducting a complex join among the vertices that take part in the traversal.</simpara>
+<literallayout class="monospaced">In the general case, to support pagination, we need to store some state for each of the participating node and edge, as each of them may contribute to the final output during the computation of the next page.</literallayout>
+<section xml:id="_asciidoc">
+<title>AsciiDoc</title>
+<literallayout class="monospaced">include::asciidoc.adoc[]</literallayout>
+</section>
+</chapter>
 <chapter xml:id="_biology">
 <title>Biology</title>
 
@@ -30,21 +203,5 @@
 </informalfigure>
 </section>
 </chapter>
-<chapter xml:id="_asciidoc">
-<title>AsciiDoc</title>
-
-</chapter>
-<chapter xml:id="_dependencies">
-<title>Dependencies</title>
-<screen>sudo apt-get install -y asciidoctor
-sudo apt-get -y install calibre
-sudo gem install asciidoctor-pdf --pre
-sudo gem install rouge
-sudo dpkg -i pandoc-xx.xx.xx-amd64.deb</screen>
-<itemizedlist>
-<listitem>
-<simpara>Install <emphasis role="strong">pandoc</emphasis> <link xl:href="https://github.com/jgm/pandoc/releases">github.com/jgm/pandoc/releases</link></simpara>
-</listitem>
-</itemizedlist>
-</chapter>
+</part>
 </book>
