@@ -98,15 +98,33 @@ def handler(event):
     return</programlisting>
 </para>
 </formalpara>
-<section xml:id="_pagination">
-<title>Pagination</title>
+<section xml:id="_dynamodb">
+<title>DynamoDb</title>
+<section xml:id="_dynamodb_to_kinesis_stream">
+<title>DynamoDb to Kinesis Stream</title>
+<itemizedlist>
+<listitem>
+<simpara>Create kinesis stream</simpara>
+</listitem>
+<listitem>
+<simpara>select the kinesis stream in Dynamodb table overview</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</section>
+<section xml:id="_linux">
+<title>Linux</title>
 
 </section>
-</chapter>
-</part>
-<part xml:id="_pagination_2">
+<section xml:id="_installupdate_visual_studio_code_in_ubuntu">
+<title>Install/update Visual studio code in Ubuntu</title>
+<screen>sudo dpkg -r code
+sudo dpkg -i code_1.56.2-1620838498_amd64.deb</screen>
+</section>
+<section xml:id="_pagination">
 <title>Pagination</title>
-<partintro>
+<section xml:id="_pagination_2">
+<title>Pagination</title>
 <simpara>Pagination is a sequence of pages which are connected and have similar content</simpara>
 <simpara><emphasis>Page</emphasis> is a fixed count of results or fixed size of results</simpara>
 <simpara>Client application may request to skip multiple page and fetch the following page</simpara>
@@ -130,6 +148,19 @@ def handler(event):
 <simpara>Pagination</simpara>
 </listitem>
 </itemizedlist>
+</section>
+</section>
+</chapter>
+<chapter xml:id="_thinks_that_are_need_to_be_handled">
+<title>Thinks that are need to be handled</title>
+<itemizedlist>
+<listitem>
+<simpara>Skiping page</simpara>
+</listitem>
+<listitem>
+<simpara>Fetch based on the page &amp; limit</simpara>
+</listitem>
+</itemizedlist>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -138,7 +169,7 @@ def handler(event):
 <textobject><phrase>Limit offset example</phrase></textobject>
 </mediaobject>
 </informalfigure>
-</partintro>
+</chapter>
 <chapter xml:id="_types_of_pagination">
 <title>Types of Pagination</title>
 <itemizedlist mark="disc">
