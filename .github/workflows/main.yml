@@ -22,8 +22,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Get build container
-      id: adocbuild
-      uses: avattathil/asciidoctor-action@master
+      run: sudo apt-get install -y asciidoctor && sudo apt-get -y install calibre && sudo gem install asciidoctor-pdf --pre 
       with:
           program: "asciidoctor -D docs -a stylesheet=style.css --backend=html5 -o index.html README.adoc"
     - name: Deploy docs to ghpages
