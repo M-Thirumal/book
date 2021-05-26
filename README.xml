@@ -4,7 +4,7 @@
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
 <info>
 <title>Book</title>
-<date>2021-05-23</date>
+<date>2021-05-26</date>
 </info>
 <preface>
 <title></title>
@@ -17,13 +17,12 @@
 <title>AWS</title>
 <section xml:id="_lambda_functions">
 <title>Lambda Functions</title>
+<section xml:id="_prerequisite_setting_up_your_environment">
+<title>Prerequisite: Setting up your environment</title>
 
 </section>
-</section>
-</chapter>
-<part xml:id="_invoke_aws_lambda_function_from_another_lambda_function">
+<section xml:id="_invoke_aws_lambda_function_from_another_lambda_function">
 <title>Invoke AWS Lambda function from another lambda function</title>
-<partintro>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -32,8 +31,7 @@
 <textobject><phrase>lambda Invoke</phrase></textobject>
 </mediaobject>
 </informalfigure>
-</partintro>
-<chapter xml:id="_prerequisite">
+<section xml:id="_prerequisite">
 <title>Prerequisite</title>
 <itemizedlist>
 <listitem>
@@ -48,8 +46,8 @@
 </itemizedlist>
 </listitem>
 </itemizedlist>
-</chapter>
-<chapter xml:id="_steps">
+</section>
+<section xml:id="_steps">
 <title>Steps</title>
 <itemizedlist>
 <listitem>
@@ -67,8 +65,8 @@
 <simpara>Test it</simpara>
 </listitem>
 </itemizedlist>
-</chapter>
-<chapter xml:id="_sample_code_with_aws_chalice_fraework">
+</section>
+<section xml:id="_sample_code_with_aws_chalice_fraework">
 <title>Sample code with AWS Chalice fraework</title>
 <formalpara>
 <title>Saple code to invoke another lambda function</title>
@@ -98,6 +96,9 @@ def handler(event):
     return</programlisting>
 </para>
 </formalpara>
+</section>
+</section>
+</section>
 <section xml:id="_dynamodb">
 <title>DynamoDb</title>
 <section xml:id="_dynamodb_to_kinesis_stream">
@@ -110,6 +111,7 @@ def handler(event):
 <simpara>select the kinesis stream in Dynamodb table overview</simpara>
 </listitem>
 </itemizedlist>
+</section>
 </section>
 </section>
 <section xml:id="_linux">
@@ -148,10 +150,7 @@ sudo dpkg -i code_1.56.2-1620838498_amd64.deb</screen>
 <simpara>Pagination</simpara>
 </listitem>
 </itemizedlist>
-</section>
-</section>
-</chapter>
-<chapter xml:id="_thinks_that_are_need_to_be_handled">
+<section xml:id="_thinks_that_are_need_to_be_handled">
 <title>Thinks that are need to be handled</title>
 <itemizedlist>
 <listitem>
@@ -169,8 +168,8 @@ sudo dpkg -i code_1.56.2-1620838498_amd64.deb</screen>
 <textobject><phrase>Limit offset example</phrase></textobject>
 </mediaobject>
 </informalfigure>
-</chapter>
-<chapter xml:id="_types_of_pagination">
+</section>
+<section xml:id="_types_of_pagination">
 <title>Types of Pagination</title>
 <itemizedlist mark="disc">
 <listitem>
@@ -180,8 +179,8 @@ sudo dpkg -i code_1.56.2-1620838498_amd64.deb</screen>
 <simpara>Token-based Pagination</simpara>
 </listitem>
 </itemizedlist>
-</chapter>
-<chapter xml:id="_offset_based_pagination">
+</section>
+<section xml:id="_offset_based_pagination">
 <title>Offset Based Pagination</title>
 <section xml:id="_traverse_forward">
 <title>Traverse Forward</title>
@@ -191,8 +190,8 @@ sudo dpkg -i code_1.56.2-1620838498_amd64.deb</screen>
 <title>Traverse backward</title>
 
 </section>
-</chapter>
-<chapter xml:id="_token_based_pagination">
+</section>
+<section xml:id="_token_based_pagination">
 <title>Token Based Pagination</title>
 <section xml:id="_traverse_forward_2">
 <title>Traverse Forward</title>
@@ -204,11 +203,14 @@ sudo dpkg -i code_1.56.2-1620838498_amd64.deb</screen>
 <title>Traverse backward</title>
 
 </section>
-</chapter>
-<chapter xml:id="_pagination_in_graph">
+</section>
+<section xml:id="_pagination_in_graph">
 <title>Pagination in Graph</title>
 <simpara>Vertices can be refered directly but when we execute a graph traversal we are effectively conducting a complex join among the vertices that take part in the traversal.</simpara>
 <literallayout class="monospaced">In the general case, to support pagination, we need to store some state for each of the participating node and edge, as each of them may contribute to the final output during the computation of the next page.</literallayout>
+</section>
+</section>
+</section>
 <section xml:id="_asciidoc">
 <title>AsciiDoc</title>
 <literallayout class="monospaced">include::asciidoc.adoc[]</literallayout>
@@ -216,9 +218,7 @@ sudo dpkg -i code_1.56.2-1620838498_amd64.deb</screen>
 </chapter>
 <chapter xml:id="_biology">
 <title>Biology</title>
-
-</chapter>
-<chapter xml:id="_botonay">
+<section xml:id="_botonay">
 <title>Botonay</title>
 <section xml:id="_inosculation">
 <title>Inosculation</title>
@@ -233,6 +233,6 @@ sudo dpkg -i code_1.56.2-1620838498_amd64.deb</screen>
 </mediaobject>
 </informalfigure>
 </section>
+</section>
 </chapter>
-</part>
 </book>
