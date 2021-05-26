@@ -1,21 +1,21 @@
-# Invoke AWS Lambda function from another lambda function
+===== Invoke AWS Lambda function from another lambda function
 
 image::lambda-Invoke.svg[]
 
-## Prerequisite
+====== Prerequisite
 
 * `IAM role` role to attach below policy to the `invoking` lambda function
 ** `lambda:InvokeFunction`,
 ** `lambda:InvokeAsync`
 
-## Steps
+====== Steps
 
 * Create invoker lambda function
 ** Attach `IAM` policy
 * Create lambda function for invoking
 * Test it 
 
-## Sample code with AWS Chalice fraework
+====== Sample code with AWS Chalice fraework
 
 .Saple code to invoke another lambda function
 [source, python]

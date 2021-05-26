@@ -1,8 +1,9 @@
 ==== Lambda Functions
 
+include::./lambda/chalice-setup-pipeline.adoc[]
 include::./lambda/Invoke_lambda_function_from_another_lambda_function.adoc[]
 
-=== DynamoDb
+==== DynamoDb
 
 include::./dynamodb/stream.adoc[]
 

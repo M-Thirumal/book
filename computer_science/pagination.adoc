@@ -14,7 +14,7 @@ Client application may request to skip multiple page and fetch the following pag
 * ORDER BY
 * Pagination
 
-== Thinks that are need to be handled
+===== Thinks that are need to be handled
 
 * Skiping page
 * Fetch based on the page & limit
@@ -22,20 +22,20 @@ Client application may request to skip multiple page and fetch the following pag
 
 image::limit_offset.png[Limit offset example, 100, 100]
 
-== Types of Pagination
+===== Types of Pagination
 [disc]
 * Offset-based Pagination
 * Token-based Pagination
 
-== Offset Based Pagination
+===== Offset Based Pagination
 
-=== Traverse Forward
+====== Traverse Forward
 
-=== Traverse backward
+====== Traverse backward
 
-== Token Based Pagination
+===== Token Based Pagination
 
-=== Traverse Forward
+====== Traverse Forward
 
 `nextToken` is used to specify the record after which additional items should be fetched, along with the page size. 
 
@@ -43,10 +43,10 @@ The implementation of the token is system-specific.
 
 `DynamoDB` is an example of at system that uses `token-pagination`
 
-=== Traverse backward
+====== Traverse backward
 
 
-== Pagination in Graph
+===== Pagination in Graph
 
 Vertices can be refered directly but when we execute a graph traversal we are effectively conducting a complex join among the vertices that take part in the traversal.
 
