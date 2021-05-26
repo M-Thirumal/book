@@ -1,0 +1,7 @@
+=== Install/update Visual studio code in Ubuntu
+
+[source bash]
+----
+sudo dpkg -r code
+sudo dpkg -i code_1.56.2-1620838498_amd64.deb 
+----

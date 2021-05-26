@@ -1,4 +1,4 @@
-= Pagination
+==== Pagination
 
 Pagination is a sequence of pages which are connected and have similar content
 
@@ -14,7 +14,7 @@ Client application may request to skip multiple page and fetch the following pag
 * ORDER BY
 * Pagination
 
-===== Thinks that are need to be handled
+== Thinks that are need to be handled
 
 * Skiping page
 * Fetch based on the page & limit
