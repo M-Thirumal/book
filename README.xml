@@ -4,7 +4,7 @@
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
 <info>
 <title>Book</title>
-<date>2021-05-26</date>
+<date>2021-05-27</date>
 </info>
 <preface>
 <title></title>
@@ -19,7 +19,18 @@
 <title>Lambda Functions</title>
 <section xml:id="_prerequisite_setting_up_your_environment">
 <title>Prerequisite: Setting up your environment</title>
-
+<section xml:id="_create_a_virtualenv_and_install_chalice">
+<title>Create a virtualenv and install Chalice</title>
+<simpara>Make sure you have Python 3 installed. See the env-setup page for instructions on how to install Python.</simpara>
+<literallayout class="monospaced">Create a new virtualenv called chalice-env by running the following command:</literallayout>
+<screen>python3 -m venv chalice-env</screen>
+<literallayout class="monospaced">Activate your newly created virtualenv:</literallayout>
+<screen>source chalice-env/bin/activate</screen>
+<literallayout class="monospaced">If you are using a Windows environment, you will have to run:</literallayout>
+<screen>.\chalice-env\Scripts\activate</screen>
+<literallayout class="monospaced">Install chalice using pip:</literallayout>
+<screen>pip install chalice</screen>
+</section>
 </section>
 <section xml:id="_invoke_aws_lambda_function_from_another_lambda_function">
 <title>Invoke AWS Lambda function from another lambda function</title>
