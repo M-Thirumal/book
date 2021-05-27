@@ -1,3 +1,7 @@
+#Author = Thirumal
+#Contact Email = m.thirumal@hotmail.com
+#Last modified = 27/05/2021
+cp -R img/ docs/img/
 fileName=README
 output=docs/$fileName
 html=docs/index.html
