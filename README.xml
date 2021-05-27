@@ -9,7 +9,6 @@
 <preface>
 <title></title>
 <literallayout class="monospaced">Doc Writer m.thirumal@hotmail.com</literallayout>
-
 </preface>
 <chapter xml:id="_computer_science">
 <title>Computer Science</title>
@@ -22,13 +21,13 @@
 <section xml:id="_create_a_virtualenv_and_install_chalice">
 <title>Create a virtualenv and install Chalice</title>
 <simpara>Make sure you have Python 3 installed. See the env-setup page for instructions on how to install Python.</simpara>
-<literallayout class="monospaced">Create a new virtualenv called chalice-env by running the following command:</literallayout>
+<simpara>Create a new virtualenv called chalice-env by running the following command:</simpara>
 <screen>python3 -m venv chalice-env</screen>
-<literallayout class="monospaced">Activate your newly created virtualenv:</literallayout>
+<simpara>Activate your newly created virtualenv:</simpara>
 <screen>source chalice-env/bin/activate</screen>
-<literallayout class="monospaced">If you are using a Windows environment, you will have to run:</literallayout>
+<simpara>If you are using a Windows environment, you will have to run:</simpara>
 <screen>.\chalice-env\Scripts\activate</screen>
-<literallayout class="monospaced">Install chalice using pip:</literallayout>
+<simpara>Install chalice using pip:</simpara>
 <screen>pip install chalice</screen>
 </section>
 </section>
@@ -107,6 +106,10 @@ def handler(event):
     return</programlisting>
 </para>
 </formalpara>
+</section>
+<section xml:id="_lambda_layer">
+<title>Lambda Layer</title>
+
 </section>
 </section>
 </section>

@@ -15,7 +15,7 @@
 :sectlinks:
 :sectnums:
 
-toc::[] 
+:toc: preamble
 
 == Computer Science
 

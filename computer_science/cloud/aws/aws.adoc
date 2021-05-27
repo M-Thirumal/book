@@ -2,6 +2,7 @@
 
 include::./lambda/chalice-setup-pipeline.adoc[]
 include::./lambda/Invoke_lambda_function_from_another_lambda_function.adoc[]
+include::./lambda/lambda_layer_with_chalice.adoc[]
 
 ==== DynamoDb
 
