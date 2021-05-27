@@ -1,1 +1,27 @@
 ===== Prerequisite: Setting up your environment
+
+====== Create a virtualenv and install Chalice
+
+Make sure you have Python 3 installed. See the env-setup page for instructions on how to install Python.
+
+    Create a new virtualenv called chalice-env by running the following command:
+
+[source bash]
+----
+python3 -m venv chalice-env
+----
+    Activate your newly created virtualenv:
+[source bash]
+----
+source chalice-env/bin/activate
+----
+    If you are using a Windows environment, you will have to run:
+[source bash]
+----
+.\chalice-env\Scripts\activate
+----
+    Install chalice using pip:
+[source bash]
+----
+pip install chalice
+----
