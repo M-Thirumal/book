@@ -454,9 +454,29 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_computer_science"><a class="anchor" href="#_computer_science"></a><a class="link" href="#_computer_science">1. Computer Science</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_aws"><a class="anchor" href="#_aws"></a><a class="link" href="#_aws">1.1. AWS</a></h3>
+<h3 id="_database"><a class="anchor" href="#_database"></a><a class="link" href="#_database">1.1. Database</a></h3>
+<div class="listingblock">
+<div class="title">Create Read-Only role and user</div>
+<div class="content">
+<pre>--Create Role
+CREATE ROLE {read_only_user} LOGIN;
+--Default connection to database
+GRANT CONNECT ON DATABASE {db_name} TO {read_only_user};
+--Grant usage access to schema
+GRANT USAGE ON SCHEMA {public} TO {read_only_user};
+-- Grant select on table
+GRANT SELECT ON ALL TABLES IN SCHEMA {public} TO {read_only_user};
+
+--Create user &amp; assign role
+CREATE USER {customer_support} WITH PASSWORD '{password}';
+GRANT {read_only_user} TO {customer_support};</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aws"><a class="anchor" href="#_aws"></a><a class="link" href="#_aws">1.2. AWS</a></h3>
 <div class="sect3">
-<h4 id="_lambda_functions"><a class="anchor" href="#_lambda_functions"></a><a class="link" href="#_lambda_functions">1.1.1. Lambda Functions</a></h4>
+<h4 id="_lambda_functions"><a class="anchor" href="#_lambda_functions"></a><a class="link" href="#_lambda_functions">1.2.1. Lambda Functions</a></h4>
 <div class="sect4">
 <h5 id="_prerequisite_setting_up_your_environment"><a class="anchor" href="#_prerequisite_setting_up_your_environment"></a><a class="link" href="#_prerequisite_setting_up_your_environment">Prerequisite: Setting up your environment</a></h5>
 <div class="sect5">
@@ -586,7 +606,7 @@ def handler(event):
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dynamodb"><a class="anchor" href="#_dynamodb"></a><a class="link" href="#_dynamodb">1.1.2. DynamoDb</a></h4>
+<h4 id="_dynamodb"><a class="anchor" href="#_dynamodb"></a><a class="link" href="#_dynamodb">1.2.2. DynamoDb</a></h4>
 <div class="sect4">
 <h5 id="_dynamodb_to_kinesis_stream"><a class="anchor" href="#_dynamodb_to_kinesis_stream"></a><a class="link" href="#_dynamodb_to_kinesis_stream">DynamoDb to Kinesis Stream</a></h5>
 <div class="ulist">
@@ -603,11 +623,11 @@ def handler(event):
 </div>
 </div>
 <div class="sect2">
-<h3 id="_linux"><a class="anchor" href="#_linux"></a><a class="link" href="#_linux">1.2. Linux</a></h3>
+<h3 id="_linux"><a class="anchor" href="#_linux"></a><a class="link" href="#_linux">1.3. Linux</a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="_installupdate_visual_studio_code_in_ubuntu"><a class="anchor" href="#_installupdate_visual_studio_code_in_ubuntu"></a><a class="link" href="#_installupdate_visual_studio_code_in_ubuntu">1.3. Install/update Visual studio code in Ubuntu</a></h3>
+<h3 id="_installupdate_visual_studio_code_in_ubuntu"><a class="anchor" href="#_installupdate_visual_studio_code_in_ubuntu"></a><a class="link" href="#_installupdate_visual_studio_code_in_ubuntu">1.4. Install/update Visual studio code in Ubuntu</a></h3>
 <div class="listingblock">
 <div class="content">
 <pre>sudo dpkg -r code
@@ -616,9 +636,9 @@ sudo dpkg -i code_1.56.2-1620838498_amd64.deb</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_pagination"><a class="anchor" href="#_pagination"></a><a class="link" href="#_pagination">1.4. Pagination</a></h3>
+<h3 id="_pagination"><a class="anchor" href="#_pagination"></a><a class="link" href="#_pagination">1.5. Pagination</a></h3>
 <div class="sect3">
-<h4 id="_pagination_2"><a class="anchor" href="#_pagination_2"></a><a class="link" href="#_pagination_2">1.4.1. Pagination</a></h4>
+<h4 id="_pagination_2"><a class="anchor" href="#_pagination_2"></a><a class="link" href="#_pagination_2">1.5.1. Pagination</a></h4>
 <div class="paragraph">
 <p>Pagination is a sequence of pages which are connected and have similar content</p>
 </div>
@@ -727,7 +747,7 @@ sudo dpkg -i code_1.56.2-1620838498_amd64.deb</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_asciidoc"><a class="anchor" href="#_asciidoc"></a><a class="link" href="#_asciidoc">1.5. AsciiDoc</a></h3>
+<h3 id="_asciidoc"><a class="anchor" href="#_asciidoc"></a><a class="link" href="#_asciidoc">1.6. AsciiDoc</a></h3>
 <div class="literalblock">
 <div class="content">
 <pre>include::asciidoc.adoc[]</pre>
