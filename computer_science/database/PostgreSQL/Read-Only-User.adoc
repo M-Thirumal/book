@@ -1,0 +1,17 @@
+.Create Read-Only role and user
+
+[source bash]
+----
+--Create Role
+CREATE ROLE {read_only_user} LOGIN;
+--Default connection to database
+GRANT CONNECT ON DATABASE {db_name} TO {read_only_user};
+--Grant usage access to schema
+GRANT USAGE ON SCHEMA {public} TO {read_only_user};
+-- Grant select on table
+GRANT SELECT ON ALL TABLES IN SCHEMA {public} TO {read_only_user};
+
+--Create user & assign role
+CREATE USER {customer_support} WITH PASSWORD '{password}';
+GRANT {read_only_user} TO {customer_support};
+----

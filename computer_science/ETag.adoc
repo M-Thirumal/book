@@ -1,0 +1,8 @@
+= E-Tag
+
+== Types of lock
+* Pessimstic Lock
+
+== Pessimistic Lock
+
+Assumes that concurrent writes will occur very often.

@@ -1,0 +1,11 @@
+.Copy File
+
+cp file.txt /{destination}/file.txt
+
+.Copy Directory
+
+cp source_folder /{destination}/destination_folder
+
+.Create Lin
+
+sudo ln -s /opt/eclipse /usr/lib/eclipse
