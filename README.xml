@@ -4,7 +4,7 @@
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
 <info>
 <title>Book</title>
-<date>2021-05-27</date>
+<date>2021-05-30</date>
 </info>
 <preface>
 <title></title>
@@ -12,6 +12,26 @@
 </preface>
 <chapter xml:id="_computer_science">
 <title>Computer Science</title>
+<section xml:id="_database">
+<title>Database</title>
+<formalpara>
+<title>Create Read-Only role and user</title>
+<para>
+<screen>--Create Role
+CREATE ROLE {read_only_user} LOGIN;
+--Default connection to database
+GRANT CONNECT ON DATABASE {db_name} TO {read_only_user};
+--Grant usage access to schema
+GRANT USAGE ON SCHEMA {public} TO {read_only_user};
+-- Grant select on table
+GRANT SELECT ON ALL TABLES IN SCHEMA {public} TO {read_only_user};
+
+--Create user &amp; assign role
+CREATE USER {customer_support} WITH PASSWORD '{password}';
+GRANT {read_only_user} TO {customer_support};</screen>
+</para>
+</formalpara>
+</section>
 <section xml:id="_aws">
 <title>AWS</title>
 <section xml:id="_lambda_functions">

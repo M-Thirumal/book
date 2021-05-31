@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.15">
+<meta name="generator" content="Asciidoctor 2.0.12">
 <title>Book</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -94,6 +94,9 @@ dl dd{margin-bottom:1.25em}
 abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
 abbr{text-transform:none}
 blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
 blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
 @media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
 h1{font-size:2.75em}
@@ -258,7 +261,7 @@ pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
 .quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
 .quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
-.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
 p.tableblock:last-child{margin-bottom:0}
 td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
 td.tableblock>.content>:last-child{margin-bottom:-1.25em}
@@ -453,9 +456,29 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_computer_science"><a class="anchor" href="#_computer_science"></a><a class="link" href="#_computer_science">1. Computer Science</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_aws"><a class="anchor" href="#_aws"></a><a class="link" href="#_aws">1.1. AWS</a></h3>
+<h3 id="_database"><a class="anchor" href="#_database"></a><a class="link" href="#_database">1.1. Database</a></h3>
+<div class="listingblock">
+<div class="title">Create Read-Only role and user</div>
+<div class="content">
+<pre>--Create Role
+CREATE ROLE {read_only_user} LOGIN;
+--Default connection to database
+GRANT CONNECT ON DATABASE {db_name} TO {read_only_user};
+--Grant usage access to schema
+GRANT USAGE ON SCHEMA {public} TO {read_only_user};
+-- Grant select on table
+GRANT SELECT ON ALL TABLES IN SCHEMA {public} TO {read_only_user};
+
+--Create user &amp; assign role
+CREATE USER {customer_support} WITH PASSWORD '{password}';
+GRANT {read_only_user} TO {customer_support};</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aws"><a class="anchor" href="#_aws"></a><a class="link" href="#_aws">1.2. AWS</a></h3>
 <div class="sect3">
-<h4 id="_lambda_functions"><a class="anchor" href="#_lambda_functions"></a><a class="link" href="#_lambda_functions">1.1.1. Lambda Functions</a></h4>
+<h4 id="_lambda_functions"><a class="anchor" href="#_lambda_functions"></a><a class="link" href="#_lambda_functions">1.2.1. Lambda Functions</a></h4>
 <div class="sect4">
 <h5 id="_prerequisite_setting_up_your_environment"><a class="anchor" href="#_prerequisite_setting_up_your_environment"></a><a class="link" href="#_prerequisite_setting_up_your_environment">Prerequisite: Setting up your environment</a></h5>
 <div class="sect5">
@@ -585,7 +608,7 @@ def handler(event):
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dynamodb"><a class="anchor" href="#_dynamodb"></a><a class="link" href="#_dynamodb">1.1.2. DynamoDb</a></h4>
+<h4 id="_dynamodb"><a class="anchor" href="#_dynamodb"></a><a class="link" href="#_dynamodb">1.2.2. DynamoDb</a></h4>
 <div class="sect4">
 <h5 id="_dynamodb_to_kinesis_stream"><a class="anchor" href="#_dynamodb_to_kinesis_stream"></a><a class="link" href="#_dynamodb_to_kinesis_stream">DynamoDb to Kinesis Stream</a></h5>
 <div class="ulist">
@@ -602,11 +625,11 @@ def handler(event):
 </div>
 </div>
 <div class="sect2">
-<h3 id="_linux"><a class="anchor" href="#_linux"></a><a class="link" href="#_linux">1.2. Linux</a></h3>
+<h3 id="_linux"><a class="anchor" href="#_linux"></a><a class="link" href="#_linux">1.3. Linux</a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="_installupdate_visual_studio_code_in_ubuntu"><a class="anchor" href="#_installupdate_visual_studio_code_in_ubuntu"></a><a class="link" href="#_installupdate_visual_studio_code_in_ubuntu">1.3. Install/update Visual studio code in Ubuntu</a></h3>
+<h3 id="_installupdate_visual_studio_code_in_ubuntu"><a class="anchor" href="#_installupdate_visual_studio_code_in_ubuntu"></a><a class="link" href="#_installupdate_visual_studio_code_in_ubuntu">1.4. Install/update Visual studio code in Ubuntu</a></h3>
 <div class="listingblock">
 <div class="content">
 <pre>sudo dpkg -r code
@@ -615,9 +638,9 @@ sudo dpkg -i code_1.56.2-1620838498_amd64.deb</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_pagination"><a class="anchor" href="#_pagination"></a><a class="link" href="#_pagination">1.4. Pagination</a></h3>
+<h3 id="_pagination"><a class="anchor" href="#_pagination"></a><a class="link" href="#_pagination">1.5. Pagination</a></h3>
 <div class="sect3">
-<h4 id="_pagination_2"><a class="anchor" href="#_pagination_2"></a><a class="link" href="#_pagination_2">1.4.1. Pagination</a></h4>
+<h4 id="_pagination_2"><a class="anchor" href="#_pagination_2"></a><a class="link" href="#_pagination_2">1.5.1. Pagination</a></h4>
 <div class="paragraph">
 <p>Pagination is a sequence of pages which are connected and have similar content</p>
 </div>
@@ -726,7 +749,7 @@ sudo dpkg -i code_1.56.2-1620838498_amd64.deb</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_asciidoc"><a class="anchor" href="#_asciidoc"></a><a class="link" href="#_asciidoc">1.5. AsciiDoc</a></h3>
+<h3 id="_asciidoc"><a class="anchor" href="#_asciidoc"></a><a class="link" href="#_asciidoc">1.6. AsciiDoc</a></h3>
 <div class="literalblock">
 <div class="content">
 <pre>include::asciidoc.adoc[]</pre>
