@@ -1,3 +1,10 @@
+.Create super user
+
+[source bash]
+----
+CREATE ROLE thirumal LOGIN SUPERUSER PASSWORD 'Thirumal@1991';
+----
+
 .Create Read-Only role and user
 
 [source bash]
